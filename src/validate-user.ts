@@ -5,7 +5,7 @@ import { K3ConfigEntry } from './k3-config-entry';
 
 const VALIDATE_USER_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc';
 
-interface LoginResult {
+interface ValidateUserResult {
     Message: string;
     MessageCode: string;
     LoginResultType: number;
@@ -15,9 +15,9 @@ interface LoginResult {
 /**
  * 用户登录
  */
-export const login = async (config: K3ConfigEntry) => {
+export const validateUser = async (config: K3ConfigEntry) => {
     // 发送登录请求
-    const { data } = await axios.post<LoginResult>(`${config.url}/${VALIDATE_USER_SERVICE_NAME}`,
+    const { data } = await axios.post<ValidateUserResult>(`${config.url}/${VALIDATE_USER_SERVICE_NAME}`,
         {
             acctid: config.acctid,
             username: config.username,
@@ -29,11 +29,5 @@ export const login = async (config: K3ConfigEntry) => {
             withCredentials: true
         });
 
-    // 登录失败
-    if (data.LoginResultType !== 1) {
-        return '';
-    }
-
-    // 登录成功，返回登录 cookie
-    return data.KDSVCSessionId;
+    return data;
 };
