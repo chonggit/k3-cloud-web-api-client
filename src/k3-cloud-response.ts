@@ -55,7 +55,6 @@ export interface SuccessEntity {
     Id: String;
     /** 编码  */
     Number: string;
-    BillNo: string;
     /** 原始数据行号 */
     DIndex: string;
 }
