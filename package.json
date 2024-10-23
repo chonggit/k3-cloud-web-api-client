@@ -1,0 +1,31 @@
+{
+  "name": "k3-cloud-web-api-client",
+  "description": "k3 cloud web api client",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "install": "tsc --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chonggit/k3-cloud-web-api-client.git"
+  },
+  "author": "cihong.liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chonggit/k3-cloud-web-api-client/issues"
+  },
+  "homepage": "https://github.com/chonggit/k3-cloud-web-api-client#readme",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

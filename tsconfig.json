@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ES5",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+  },
+  "exclude": [
+    "*.ts",
+    "src/**/*.spec.ts"
+  ]
+}
