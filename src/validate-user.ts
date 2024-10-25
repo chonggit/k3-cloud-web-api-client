@@ -2,8 +2,7 @@
 
 import axios from 'axios';
 import { K3ConfigEntry } from './k3-config-entry';
-
-const VALIDATE_USER_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc';
+import { VALIDATE_USER_SERVICE_NAME } from './k3-cloud-services';
 
 interface ValidateUserResult {
     Message: string;

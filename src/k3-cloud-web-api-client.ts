@@ -10,17 +10,18 @@ import { FormId } from './form-id';
 import { OperateParam } from './operate-param';
 import { SaveParam } from './save-param';
 import { PushParam } from './push-param';
+import {
+    AUDIT_SERVICE_NAME,
+    UN_AUDIT_SERVICE_NAME,
+    DRAFT_SERVICE_NAME,
+    EXECUTE_BILL_QUERY_SERVICE_NAME,
+    PUSH_SERVICE_NAME,
+    SAVE_SERVICE_NAME,
+    DELETE_SERVICE_NAME,
+    SUBMIT_SERVICE_NAME
+} from './k3-cloud-services'
 
 export class K3CloudWebAPIClient {
-
-    static AUDIT_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Audit.common.kdsvc';
-    static UN_AUDIT_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UnAudit.common.kdsvc';
-    static DRAFT_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Draft.common.kdsvc';
-    static EXECUTE_BILL_QUERY_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.ExecuteBillQuery.common.kdsvc';
-    static PUSH_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Push.common.kdsvc';
-    static SAVE_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc';
-    static DELETE_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc';
-    static SUBMIT_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc';
 
     private _axios?: Axios;
 
@@ -56,7 +57,7 @@ export class K3CloudWebAPIClient {
 
     /** 执行查询 */
     async executeBillQuery(param: QueryParam) {
-        const response = await this.send(K3CloudWebAPIClient.EXECUTE_BILL_QUERY_SERVICE_NAME, { data: param });
+        const response = await this.send(EXECUTE_BILL_QUERY_SERVICE_NAME, { data: param });
         // 执行成功，转换查询结果
         if (response.Result.ResponseStatus.IsSuccess) {
             const results = response.Result.Result as [][];
@@ -76,36 +77,36 @@ export class K3CloudWebAPIClient {
 
     /** 审核单据 */
     aduit(formId: FormId, param: OperateParam) {
-        return this.send(K3CloudWebAPIClient.AUDIT_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(AUDIT_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 单据保存为草稿 */
     draft<T = any>(formId: FormId, param: SaveParam<T>) {
-        return this.send(K3CloudWebAPIClient.DRAFT_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(DRAFT_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 下推单据 */
     push(formId: FormId, param: PushParam) {
-        return this.send(K3CloudWebAPIClient.PUSH_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(PUSH_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 删除单据 */
     remove(formId: FormId, param: OperateParam) {
-        return this.send(K3CloudWebAPIClient.DELETE_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(DELETE_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 保存单据 */
     save<T = any>(formId: FormId, param: SaveParam<T>) {
-        return this.send(K3CloudWebAPIClient.SAVE_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(SAVE_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 提交单据 */
     submit(formId: FormId, param: OperateParam) {
-        return this.send(K3CloudWebAPIClient.SUBMIT_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(SUBMIT_SERVICE_NAME, { formid: formId, data: param });
     };
 
     /** 驳回已审单据 */
     unAduit(formId: FormId, param: OperateParam) {
-        return this.send(K3CloudWebAPIClient.UN_AUDIT_SERVICE_NAME, { formid: formId, data: param });
+        return this.send(UN_AUDIT_SERVICE_NAME, { formid: formId, data: param });
     };
 }
