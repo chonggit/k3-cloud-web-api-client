@@ -8,4 +8,5 @@ export type FormId = 'BD_MATERIAL'          // 物料
     | 'STK_MisDelivery'                     // 其他出库单
     | 'STK_LOTADJUST'                       // 批号调整单
     | 'STK_StatusConvert'                   // 形态转换单
-    | 'STK_TransferDirect';                 // 直接调拨单
+    | 'STK_TransferDirect'                  // 直接调拨单
+    | 'IOS_PriceList';                      // 组织间结算价目表
