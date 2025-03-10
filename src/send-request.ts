@@ -7,15 +7,12 @@ export const sendRequest = async <T>(
   serviceName: string,
   param: T
 ): Promise<K3CloudResponse> => {
-  const { data } = await axios.post<K3CloudResponse | any[]>(
-    serviceName,
-    param
-  );
+  const { data } = await axios.post<K3CloudResponse | any[]>(serviceName, param);
 
   if (Array.isArray(data)) {
     // 单据查询调用失败时
     // 异常信息在返回数组的第一个元素
-    const result = ((data[0] || [])[0] || []).Result || {
+    const result = data[0]?.[0]?.Result || {
       ResponseStatus: { IsSuccess: true },
       Result: data,
     };
