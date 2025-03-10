@@ -15,19 +15,23 @@ interface ValidateUserResult {
  * 用户登录
  */
 export const validateUser = async (config: K3ConfigEntry) => {
+  const requestData = {
+    acctid: config.acctid,
+    username: config.username,
+    password: config.password,
+    lcid: config.lcid || 2052,
+  };
+
+  const requestOptions = {
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true,
+  };
+
   // 发送登录请求
   const { data } = await axios.post<ValidateUserResult>(
     `${config.url}/${VALIDATE_USER_SERVICE_NAME}`,
-    {
-      acctid: config.acctid,
-      username: config.username,
-      password: config.password,
-      lcid: config.lcid || 2052,
-    },
-    {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    }
+    requestData,
+    requestOptions
   );
 
   return data;
