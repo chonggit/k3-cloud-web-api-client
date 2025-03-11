@@ -8,7 +8,7 @@ export type ResponseResult<TResult = any> = {
   /** 返回结果信息 */
   ResponseStatus: ResponseStatus;
   /** 返回的数据 */
-  Result?: TResult;
+  Result: TResult;
 };
 
 export type ResponseStatus = {
