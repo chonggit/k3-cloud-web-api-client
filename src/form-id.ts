@@ -4,6 +4,7 @@ export type FormId = 'BD_MATERIAL'  // 物料
     | 'PRD_INSTOCK'                 // 生产入库单
     | 'PRD_MO'                      // 生产订单
     | 'PRD_PPBOM'                   // 生产用料清单
+    | 'PRD_PickMtrl'                // 生产领料单
     | 'STK_AssembledApp'            // 组装拆卸单
     | 'STK_MISCELLANEOUS'           // 其他入库单
     | 'STK_MisDelivery'             // 其他出库单
