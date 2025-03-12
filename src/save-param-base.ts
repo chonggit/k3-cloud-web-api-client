@@ -17,7 +17,7 @@ export abstract class SaveParamBase {
   /** 是否用编码搜索基础资料，布尔类型，默认true（非必录） */
   NumberSearch?: boolean;
   /** 是否自动调整JSON字段顺序，布尔类型，默认false（非必录） */
-  IsAutoAdjustField?: true;
+  IsAutoAdjustField?: boolean;
   /** 交互标志集合，字符串类型，分号分隔，格式："flag1;flag2;..."（非必录） 例如（允许负库存标识：STK_InvCheckResult） */
   InterationFlags?: string;
   /** 是否控制精度，为true时对金额、单价和数量字段进行精度验证，默认false（非必录） */
