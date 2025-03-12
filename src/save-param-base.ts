@@ -2,9 +2,9 @@
 
 /** 单据保存参数 */
 export abstract class SaveParamBase {
-  /** 需要更新的字段，数组类型，格式：[key1,key2,...] （非必录）注（更新字段时Model数据包中必须设置内码，若更新单据体字段还需设置分录内码） */
-  NeedReturnFields?: [];
   /** 需返回结果的字段集合，数组类型，格式：[key,entitykey.key,...]（非必录） 注（返回单据体字段格式：entitykey.key） */
+  NeedReturnFields?: [];
+  /** 需要更新的字段，数组类型，格式：[key1,key2,...] （非必录）注（更新字段时Model数据包中必须设置内码，若更新单据体字段还需设置分录内码） */
   NeedUpdateFields?: [];
   /** 是否删除已存在的分录，布尔类型，默认true（非必录） */
   IsDeleteEntry?: boolean;
