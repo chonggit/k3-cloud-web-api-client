@@ -22,4 +22,6 @@ export abstract class SaveParamBase {
   InterationFlags?: string;
   /** 是否控制精度，为true时对金额、单价和数量字段进行精度验证，默认false（非必录） */
   IsControlPrecision?: boolean;
+  /**  保存时是否自动提交并审核，默认false（非必录）*/
+  IsAutoSubmitAndAudit?: boolean;
 }
