@@ -44,8 +44,8 @@ export class K3CloudWebAPIClient {
     return response.Result.ResponseStatus.MsgCode === 1;
   }
 
-  loginBySign() {
-    return loginBySign(this._config);
+  loginBySign(config?: K3ConfigEntry) {
+    return loginBySign(Object.assign({}, this._config, config));
   }
 
   /** 发送 http 请求 */
