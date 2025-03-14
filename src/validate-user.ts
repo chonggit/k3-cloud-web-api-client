@@ -24,7 +24,7 @@ export const validateUser = async (config: K3ConfigEntry) => {
 
   // 发送登录请求
   const { data } = await axios.post<ValidateUserResult>(
-    `${config.url}/${VALIDATE_USER_SERVICE_NAME}`,
+    `${config.url.replace(/\/+$/, '')}/${VALIDATE_USER_SERVICE_NAME}`,
     requestData,
     requestOptions
   );

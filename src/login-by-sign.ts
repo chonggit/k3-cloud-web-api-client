@@ -28,7 +28,7 @@ export async function loginBySign(config: K3ConfigEntry) {
   const encryptedData = generateEncryptedData(parameters);
 
   const response = await axios.post<ValidateUserResult>(
-    `${config.url}/${LOGIN_BY_SIGN}`,
+    `${config.url.replace(/\/+$/, '')}/${LOGIN_BY_SIGN}`,
     {
       parameters: [
         config.acctid,
