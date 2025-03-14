@@ -14,6 +14,5 @@ export const createAxiosInstance = async (config: K3ConfigEntry) => {
       'Content-Type': 'application/json',
       'kdservice-sessionid': LoginResultType === 1 ? KDSVCSessionId : '',
     },
-    withCredentials: true,
   });
 };
