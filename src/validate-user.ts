@@ -3,13 +3,7 @@
 import axios from 'axios';
 import { K3ConfigEntry } from './k3-config-entry';
 import { VALIDATE_USER_SERVICE_NAME } from './k3-cloud-services';
-
-interface ValidateUserResult {
-  Message: string;
-  MessageCode: string;
-  LoginResultType: number;
-  KDSVCSessionId: string;
-}
+import { ValidateUserResult } from './validate-user-result';
 
 /**
  * 用户登录
@@ -24,7 +18,6 @@ export const validateUser = async (config: K3ConfigEntry) => {
 
   const requestOptions = {
     headers: { 'Content-Type': 'application/json' },
-    withCredentials: true,
   };
 
   // 发送登录请求
