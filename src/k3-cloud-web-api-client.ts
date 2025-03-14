@@ -20,6 +20,7 @@ import {
   DELETE_SERVICE_NAME,
   SUBMIT_SERVICE_NAME,
 } from './k3-cloud-services';
+import { loginBySign } from './login-by-sign';
 
 export class K3CloudWebAPIClient {
   private _axios?: Axios;
@@ -43,6 +44,10 @@ export class K3CloudWebAPIClient {
     return response.Result.ResponseStatus.MsgCode === 1;
   }
 
+  loginBySign() {
+    return loginBySign(this._config);
+  }
+
   /** 发送 http 请求 */
   async send<T>(serviceName: string, param: T): Promise<ResponseResult> {
     const axiosInstance = await this.getAxiosInstance();
@@ -50,19 +55,23 @@ export class K3CloudWebAPIClient {
     // 未登录或登录过期，删除 Axios 实例，重新登录，再次发送请求
     if (await this.isLoginExpired(result)) {
       this._axios = undefined;
-      return (await sendRequest(await this.getAxiosInstance(), serviceName, param)).Result;
+      return (
+        await sendRequest(await this.getAxiosInstance(), serviceName, param)
+      ).Result;
     }
     return result.Result;
   }
 
   /** 执行查询 */
   async executeBillQuery<TResult = any>(param: QueryParam) {
-    const response = await this.send(EXECUTE_BILL_QUERY_SERVICE_NAME, { data: param });
+    const response = await this.send(EXECUTE_BILL_QUERY_SERVICE_NAME, {
+      data: param,
+    });
     // 执行成功，转换查询结果
     if (response.ResponseStatus.IsSuccess) {
       const results = response.Result as [][]; // Assuming Result is a 2D array
       const keys = param.FieldKeys.split(',');
-      response.Result = results.map(result => {
+      response.Result = results.map((result) => {
         const newResult: { [name: string]: any } = {};
         result.forEach((value, index) => {
           newResult[keys[index]] = value;
