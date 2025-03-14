@@ -18,3 +18,5 @@ export const SAVE_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormSer
 export const DELETE_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc';
 /** 提交单据 */
 export const SUBMIT_SERVICE_NAME = 'Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc';
+/*** 登录 */
+export const LOGIN_BY_SIGN = 'Kingdee.BOS.WebApi.ServicesStub.AuthService.LoginBySign.common.kdsvc';
