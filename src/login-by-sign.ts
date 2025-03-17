@@ -9,9 +9,7 @@ function getTimestamp() {
 }
 
 function generateEncryptedData(parameters: string[]) {
-  const parametersString = parameters
-    .sort((a, b) => a.localeCompare(b))
-    .join('');
+  const parametersString = parameters.sort().join('');
   return createHash('sha256').update(parametersString, 'utf8').digest('hex');
 }
 
