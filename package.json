@@ -15,7 +15,7 @@
     "url": "https://github.com/chonggit/k3-cloud-web-api-client/issues"
   },
   "homepage": "https://github.com/chonggit/k3-cloud-web-api-client#readme",
-  "peerDependencies": {
+  "optionalDependencies": {
     "axios": "^1.7.7"
   },
   "devDependencies": {
