@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/chonggit/k3-cloud-web-api-client#readme",
   "peerDependencies": {
-    "axios": "0||1"
+    "axios": "^0.27.2||^1.7.7"
   },
   "devDependencies": {
     "@types/jest": "^29.5.13",
